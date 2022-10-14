@@ -1,0 +1,52 @@
+ul{
+    list-style: none;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+
+}
+li {
+
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFB419;
+    width: 90%;
+    font-family: 'Monda', sans-serif;
+
+}
+
+li p {
+    margin-top: 8px;
+}
+
+h3,p{
+    margin-left: 1rem;
+}
+
+.false {
+    text-decoration: none;
+}
+
+.true{
+    text-decoration: line-through;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex i {
+    font-size: 15px;
+}
+
+.fa-xmark{
+    transition: 1s;
+    color: rgba(0, 0, 0, 0.492);
+}
+
+.fa-xmark:hover {
+    transform: scale(1.2);
+}

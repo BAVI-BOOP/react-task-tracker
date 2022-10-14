@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Monda&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #0087E0;
+}
+
+.App {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #19A3FF;
+  width: 30rem;
+  height: 70%;
+  border-radius: 4%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+h1{
+  text-align: center;
+  margin: 1rem;
+  font-family: 'Julius Sans One', sans-serif;
+  color: #c07408;
+}
+
+button {
+  margin-left: 11rem;
+  padding: 0.6rem;
+  color: white;
+  background-color: #E08400;
+  margin-bottom: 1rem;
+  font-family: 'Monda', sans-serif;
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 90%;
+  margin:auto;
+  margin-bottom: 1rem;
+  padding: 0.4rem;
+}
+
+label {
+  margin-left:5% ;
+  color: #945700;
+  font-weight: 600;
+  font-family: 'Monda', sans-serif;
+
+}
+
+.submit {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  background-color: #E08400;
+  font-family: 'Monda', sans-serif;
+
+}
+
+i{
+  margin-top: 0.4rem;
+  font-size: 1.8rem;
+  color: white;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 0.5rem;
+
+}
+
+@media screen and (max-width: 1600px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+  @media screen and (max-width: 576px) {
+    html {
+      font-size: 13px;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+      html {
+        font-size: 12px;
+      }
+    }
