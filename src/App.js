@@ -52,7 +52,7 @@ function App() {
     e.preventDefault();
     let anan = formData.filter((item) => {
 
-      return item.id != e.target.id;
+      return (item.id).toString() !== (e.target.id).toString();
     })
  
     setformData(
@@ -64,9 +64,9 @@ function App() {
     e.preventDefault();
     let myItem = e.target.closest("p");
 
-    let selected = formData.find((item) => item.task == myItem.innerText || item.time == myItem.innerText);
+    let selected = formData.find((item) => item.task === myItem.innerText || item.time === myItem.innerText);
     let newData = formData.filter((item) => {
-      return item.task != selected.task
+      return item.task !== selected.task
     })
     setformData(
       [...newData, {id: selected.id, task:selected.task, time: selected.time, done: selected.done === "true" ? selected.done = "false": selected.done= "true"}]
