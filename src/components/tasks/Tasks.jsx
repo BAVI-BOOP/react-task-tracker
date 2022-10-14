@@ -8,17 +8,16 @@ const Tasks = ({ data, func, toggleClass }) => {
       <ul>
         {data.map((item) => {
           return (
-            <li key={item.id} done={item.done}>
-              <div onClick={toggleClass}>
-                <div className="flex">
-                <i className="fa-solid fa-clock"></i>
-                  <p className={item.done}>{item.task}</p>
+            <li key={item.id} done={item.done} onClick={toggleClass} id={item.id} >
+              <div className={item.done}>
+                <div className="flex" >
+                <i className="fa-solid fa-list-check"></i>
+                <p >{item.task}</p>
 
                 </div>
                 <div className="flex">
-                <i className="fa-solid fa-list-check"></i>
-                  <p className={item.done}>{item.time}</p>
-
+                <i className="fa-solid fa-clock"></i>
+                <p  >{item.time}</p>
                 </div>
               </div>
 

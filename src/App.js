@@ -50,6 +50,7 @@ function App() {
 
   const handleDelete = (e) => {
     e.preventDefault();
+
     let anan = formData.filter((item) => {
 
       return (item.id).toString() !== (e.target.id).toString();
@@ -62,15 +63,22 @@ function App() {
 
   const handleClass = (e) => {
     e.preventDefault();
-    let myItem = e.target.closest("p");
+    // console.log(e.target.tagName)
+    // let myItem = e.target.closest("p")
+    console.log(e.target.tagName)
+    if(e.target.tagName === "LI"){
 
-    let selected = formData.find((item) => item.task === myItem.innerText || item.time === myItem.innerText);
-    let newData = formData.filter((item) => {
-      return item.task !== selected.task
-    })
-    setformData(
-      [...newData, {id: selected.id, task:selected.task, time: selected.time, done: selected.done === "true" ? selected.done = "false": selected.done= "true"}]
-    )
+      let selected = formData.find((item) => {return (item.id).toString() === (e.target.id).toString()}); //console.log(item.id), console.log(e.target.id)
+      console.log(selected)
+      let newData = formData.filter((item) => {
+        return (item.id).toString() !== (selected.id).toString()
+      })
+      setformData(
+        [...newData, {id: selected.id, task:selected.task, time: selected.time, done: selected.done === "true" ? selected.done = "false": selected.done= "true"}]
+      )
+    }
+    // let selected = formData.find((item) => item.time === myItem.innerText || item.task === myItem.innerText);
+
 
   };
   return (
