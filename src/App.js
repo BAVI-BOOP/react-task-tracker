@@ -8,7 +8,7 @@ function App() {
 
   const [formData, setformData] = useState([]);
 
-  const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState(0);
 
   const [input, setInput] = useState({
     id: 0,
@@ -51,14 +51,15 @@ function App() {
   const handleDelete = (e) => {
     e.preventDefault();
 
-    let anan = formData.filter((item) => {
+    let a = formData.filter((item) => {
 
       return (item.id).toString() !== (e.target.id).toString();
     })
  
     setformData(
-      anan
+      a
     );
+    setCounter(prev => prev-1)
   };
 
   const handleClass = (e) => {
@@ -73,9 +74,15 @@ function App() {
       let newData = formData.filter((item) => {
         return (item.id).toString() !== (selected.id).toString()
       })
-      setformData(
-        [...newData, {id: selected.id, task:selected.task, time: selected.time, done: selected.done === "true" ? selected.done = "false": selected.done= "true"}]
-      )
+      console.log(selected.id)
+
+      newData.splice(selected.id, 0, {id: selected.id, task:selected.task, time: selected.time, done: selected.done === "true" ? selected.done = "false": selected.done= "true"})
+      // setformData(
+      //   [...newData, {id: selected.id, task:selected.task, time: selected.time, done: selected.done === "true" ? selected.done = "false": selected.done= "true"}]
+      // )
+
+      setformData(newData)
+
     }
     // let selected = formData.find((item) => item.time === myItem.innerText || item.task === myItem.innerText);
 
