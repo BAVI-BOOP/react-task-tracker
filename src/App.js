@@ -32,7 +32,7 @@ function App() {
       alert("no");
     }
 
-    if (input.time && input.task) {
+    if (input.time && input.task && formData.length < 3) {
       setCounter((prev) => prev + 1);
       setInput({ id: counter, task: "", time: "", done: "false" });
       setformData([
