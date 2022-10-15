@@ -56,27 +56,37 @@ function App() {
       return (item.id).toString() !== (e.target.id).toString();
     })
  
-    setformData(
-      a
-    );
+    // setformData(
+    //   a
+    // );
     setCounter(prev => prev-1)
+    for(let i=0;i < a.length; i++) {
+      if((e.target.id ).toString() !== (counter - 1).toString()) {
+        a[i].id--;
+      }
+    }
+
+    setformData(a)
   };
 
   const handleClass = (e) => {
     e.preventDefault();
     // console.log(e.target.tagName)
     let myItem = e.target.closest("li")
-    console.log(myItem.tagName)
+
     if(e.target.tagName !== "I"){
 
       let selected = formData.find((item) => {return (item.id).toString() === (myItem.id).toString()}); //console.log(item.id), console.log(e.target.id)
-      console.log(selected)
+ 
       let newData = formData.filter((item) => {
         return (item.id).toString() !== (selected.id).toString()
       })
-      console.log(selected.id)
+
 
       newData.splice(selected.id, 0, {id: selected.id, task:selected.task, time: selected.time, done: selected.done === "true" ? selected.done = "false": selected.done= "true"})
+
+      console.log(selected.id)
+      console.log(counter)
       setformData(newData)
       // setformData(
       //   [...newData, {id: selected.id, task:selected.task, time: selected.time, done: selected.done === "true" ? selected.done = "false": selected.done= "true"}]
