@@ -1,4 +1,3 @@
-
 import "./App.css";
 
 import { useState } from "react";
@@ -33,7 +32,7 @@ function App() {
       alert("no");
     }
 
-    if (input.time && input.task && formData.length < 3) {
+    if (input.time && input.task) {
       setCounter((prev) => prev + 1);
       setInput({ id: counter, task: "", time: "", done: "false" });
       setformData([
@@ -46,64 +45,69 @@ function App() {
         },
       ]);
     }
-
   };
 
   const handleDelete = (e) => {
     e.preventDefault();
 
     let a = formData.filter((item) => {
+      return item.id.toString() !== e.target.id.toString();
+    });
 
-      return (item.id).toString() !== (e.target.id).toString();
-    })
- 
     // setformData(
     //   a
     // );
-    setCounter(prev => prev-1)
-    for(let i=0;i < a.length; i++) {
-      if((e.target.id ).toString() !== (counter - 1).toString()) {
-        a[i].id--;
+
+    if (e.target.id.toString() !== (counter - 1).toString()) {
+      for (let i = 0; i < a.length; i++) {
+        if (a[i].id > e.target.id) {
+          a[i].id--;
+        }
       }
     }
-
-    setformData(a)
+    setCounter((prev) => prev - 1);
+    setformData(a);
   };
 
   const handleClass = (e) => {
     e.preventDefault();
     // console.log(e.target.tagName)
-    let myItem = e.target.closest("li")
+    let myItem = e.target.closest("li");
 
-    if(e.target.tagName !== "I"){
+    if (e.target.tagName !== "I") {
+      let selected = formData.find((item) => {
+        return item.id.toString() === myItem.id.toString();
+      }); //console.log(item.id), console.log(e.target.id)
 
-      let selected = formData.find((item) => {return (item.id).toString() === (myItem.id).toString()}); //console.log(item.id), console.log(e.target.id)
- 
       let newData = formData.filter((item) => {
-        return (item.id).toString() !== (selected.id).toString()
-      })
+        return item.id.toString() !== selected.id.toString();
+      });
 
+      newData.splice(selected.id, 0, {
+        id: selected.id,
+        task: selected.task,
+        time: selected.time,
+        done:
+          selected.done === "true"
+            ? (selected.done = "false")
+            : (selected.done = "true"),
+      });
 
-      newData.splice(selected.id, 0, {id: selected.id, task:selected.task, time: selected.time, done: selected.done === "true" ? selected.done = "false": selected.done= "true"})
-
-      console.log(selected.id)
-      console.log(counter)
-      setformData(newData)
+      console.log(selected.id);
+      console.log(counter);
+      setformData(newData);
       // setformData(
       //   [...newData, {id: selected.id, task:selected.task, time: selected.time, done: selected.done === "true" ? selected.done = "false": selected.done= "true"}]
       // )
-
- 
-
     }
     // let selected = formData.find((item) => item.time === myItem.innerText || item.task === myItem.innerText);
-
-
   };
   return (
     <div className="App">
       <h1>Task Tracker</h1>
-      <button onClick={handleToggle}>{buttonToggle ? "Close": "Show"} Add Task Bar</button>
+      <button onClick={handleToggle}>
+        {buttonToggle ? "Close" : "Show"} Add Task Bar
+      </button>
       <div>
         {buttonToggle && (
           <form onSubmit={handleSubmit}>
