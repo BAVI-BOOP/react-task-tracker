@@ -1,3 +1,4 @@
+
 import "./App.css";
 
 import { useState } from "react";
@@ -102,7 +103,7 @@ function App() {
   return (
     <div className="App">
       <h1>Task Tracker</h1>
-      <button onClick={handleToggle}>Show Add Task Bar</button>
+      <button onClick={handleToggle}>{buttonToggle ? "Close": "Show"} Add Task Bar</button>
       <div>
         {buttonToggle && (
           <form onSubmit={handleSubmit}>
