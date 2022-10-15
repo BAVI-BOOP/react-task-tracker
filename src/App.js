@@ -67,7 +67,7 @@ function App() {
     // console.log(e.target.tagName)
     let myItem = e.target.closest("li")
     console.log(myItem.tagName)
-    // if(e.target.tagName === "LI"){
+    if(e.target.tagName !== "I"){
 
       let selected = formData.find((item) => {return (item.id).toString() === (myItem.id).toString()}); //console.log(item.id), console.log(e.target.id)
       console.log(selected)
@@ -77,13 +77,14 @@ function App() {
       console.log(selected.id)
 
       newData.splice(selected.id, 0, {id: selected.id, task:selected.task, time: selected.time, done: selected.done === "true" ? selected.done = "false": selected.done= "true"})
+      setformData(newData)
       // setformData(
       //   [...newData, {id: selected.id, task:selected.task, time: selected.time, done: selected.done === "true" ? selected.done = "false": selected.done= "true"}]
       // )
 
-      setformData(newData)
+ 
 
-    //}
+    }
     // let selected = formData.find((item) => item.time === myItem.innerText || item.task === myItem.innerText);
 
 

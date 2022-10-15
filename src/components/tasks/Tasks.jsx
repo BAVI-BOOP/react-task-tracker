@@ -17,7 +17,7 @@ const Tasks = ({ data, func, toggleClass }) => {
                 </div>
                 <div className="flex">
                 <i className="fa-solid fa-clock"></i>
-                <p  >{item.time}</p>
+                <p  className="time">{item.time}</p>
                 </div>
               </div>
 
