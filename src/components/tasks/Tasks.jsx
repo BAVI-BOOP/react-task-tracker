@@ -4,20 +4,24 @@ import "./Tasks.css";
 
 const Tasks = ({ data, func, toggleClass }) => {
   return (
-    <div>
-      <ul>
+    <div className="taskContainer scrollbar" id="style-6">
+      <ul className="force-overflow">
         {data.map((item) => {
           return (
-            <li key={item.id} done={item.done} onClick={toggleClass} id={item.id} >
+            <li
+              key={item.id}
+              done={item.done}
+              onClick={toggleClass}
+              id={item.id}
+            >
               <div className={item.done}>
-                <div className="flex" >
-                <i className="fa-solid fa-list-check"></i>
-                <p >{item.task}</p>
-
+                <div className="flex">
+                  <i className="fa-solid fa-list-check"></i>
+                  <p>{item.task}</p>
                 </div>
                 <div className="flex">
-                <i className="fa-solid fa-clock"></i>
-                <p  className="time">{item.time}</p>
+                  <i className="fa-solid fa-clock"></i>
+                  <p className="time">{item.time}</p>
                 </div>
               </div>
 

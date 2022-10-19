@@ -119,7 +119,7 @@ function App() {
               onChange={handleInput}
               value={input.task}
             />
-            <label htmlFor="time">Tİme</label>
+            <label htmlFor="time">Time</label>
             <input
               type="text"
               name="time"
@@ -130,6 +130,9 @@ function App() {
             <input type="submit" value="Save Task" className="submit" />
           </form>
         )}
+      </div>
+      <div class="scrollbar" id="style-6">
+        <div class="force-overflow"></div>
       </div>
       <Tasks data={formData} func={handleDelete} toggleClass={handleClass} />
     </div>
