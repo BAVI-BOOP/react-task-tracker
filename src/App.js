@@ -32,7 +32,7 @@ function App() {
       alert("no");
     }
 
-    if (input.time && input.task && formData.length < 3) {
+    if (input.time && input.task) {
       setCounter((prev) => prev + 1);
       setInput({ id: counter, task: "", time: "", done: "false" });
       setformData([
@@ -105,7 +105,7 @@ function App() {
   return (
     <div className="App">
       <h1>Task Tracker</h1>
-      <button onClick={handleToggle}>
+      <button className="toggleButton" onClick={handleToggle}>
         {buttonToggle ? "Close" : "Show"} Add Task Bar
       </button>
       <div>
